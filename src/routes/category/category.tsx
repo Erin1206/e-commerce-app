@@ -1,5 +1,5 @@
 import React from 'react';
-import { useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 // import { CategoriesContext } from '../../contexts/categories.context';
 import ProductCard from '../../components/product-card/product-card';
@@ -8,8 +8,12 @@ import { selectCategoriesMap, selectCategoriesIsLoading } from '../../store/cate
 import {CategoryContainer, Title} from './category.styles';
 import Spinner from '../../components/spinner/spinner';
 
+type CategoryRouteParams = {
+  category: string
+}
+
 const Category = () => {
-  const { category } = useParams()
+  const { category } = useParams<keyof CategoryRouteParams>() as CategoryRouteParams
   const categoriesMap = useSelector(selectCategoriesMap)
   const isLoading = useSelector(selectCategoriesIsLoading)
   const [products, setProducts] = useState(categoriesMap[category])

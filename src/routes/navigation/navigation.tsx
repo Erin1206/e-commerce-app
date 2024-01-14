@@ -1,11 +1,9 @@
-import { Fragment, useContext } from "react"
+import { Fragment} from "react"
 import { Outlet } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg'
 import CartIcon from "../../components/cart-icon/cart-icon"
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown"
-// import { UserContext } from "../../contexts/user.context"
-// import { CartContext } from "../../contexts/cart.context"
 
 
 import {NavigationContainer, LogoContainer, NavLinks, NavLink} from './navigation.styles'
@@ -34,12 +32,13 @@ const Navigation = () => {
           {
             currentUser ? (
               <div>
+                {/* @ts-ignore */}
                 <NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>
                 
               </div>
               
             ) : (
-              <NavLink className="nav-link" to='/auth'>SIGN IN</NavLink>
+              <NavLink to='/auth'>SIGN IN</NavLink>
             )
             
           }

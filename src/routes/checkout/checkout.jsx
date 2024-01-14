@@ -1,5 +1,3 @@
-import { useContext } from 'react'
-// import { CartContext } from '../../contexts/cart.context'
 import CheckoutItem from '../../components/checkout-item/checkout-item'
 import {CheckoutContainer, CheckoutHeader, HeaderBlock, Total } from './checkout.styles'
 import { useSelector } from 'react-redux'

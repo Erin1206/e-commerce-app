@@ -1,12 +1,9 @@
-import React from 'react';
-import { useContext } from 'react';
-// import { CartContext } from '../../contexts/cart.context';
 import './checkout-item.styles'
-import {CheckoutItemContainer, ImageContainer, BaseSpan, Quantity, Arrow, Value, RemoveButton} from './checkout-item.styles.jsx';
+import {CheckoutItemContainer, ImageContainer, BaseSpan, Quantity, Arrow, Value, RemoveButton} from './checkout-item.styles';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItems } from '../../store/cart/cart.selector.js';
-import { addItemToCart, removeItemFromCart, deleteItemFromCart } from '../../store/cart/cart.action.js';
+import { selectCartItems } from '../../store/cart/cart.selector';
+import { addItemToCart, removeItemFromCart, deleteItemFromCart } from '../../store/cart/cart.action';
 
 const Checkout = ({cartItem}) => {
   const {name, imageUrl, price, quantity} = cartItem
