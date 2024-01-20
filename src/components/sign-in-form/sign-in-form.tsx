@@ -1,37 +1,33 @@
-import { ChangeEvent, FormEvent, useState } from "react"
-import { useDispatch } from "react-redux"
+import { ChangeEvent, FormEvent, useState, useContext } from "react"
+import { UserContext } from "../../contexts/user.context"
 import FormInput from "../form-input/form-input"
-import Button, {BUTTON_TYPE_CLASSES} from "../button/button"
+import Button from "../button/button"
 import {SignInContainer, ButtonsContainer} from './sign-in-form.styles'
-import { googleSignInStart, emailSignInStart } from "../../store/user/user.action"
-
+import {signIn} from 'aws-amplify/auth'
 
 const defaultFormFields = {
-    email: '',
+    username: '',
     password: '',
 }
 
 const SignInForm = () => {
-    const dispatch = useDispatch()
     const [formFields, setFormFields] = useState(defaultFormFields)
-    const { email, password } = formFields
-
+    const { username, password } = formFields
+    const {setLoggedIn} = useContext(UserContext)
 
     const resetFormFields = () => {
         setFormFields(defaultFormFields)
     }
 
-    const signInWithGoogle = () => {
-       dispatch(googleSignInStart())
-    }
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         
         try {
-            dispatch(emailSignInStart(email, password))
-
+            await signIn({username, password})
+            setLoggedIn(true)
             resetFormFields()
+            console.log("successfully signed in")
 
 
         } catch (error) {
@@ -48,14 +44,13 @@ const SignInForm = () => {
     return (
         <SignInContainer>
             <h2>Already have an account?</h2>
-            <span>Sign up withh your email and password</span>
+            <span>Sign up withh your username and password</span>
             <form onSubmit={handleSubmit}>
-                <FormInput label='Email' type="email" required onChange ={handleChange} name="email" value={email}></FormInput>
+                <FormInput label='Username' type="text" required onChange ={handleChange} name="username" value={username}></FormInput>
                 <FormInput label='Password' type="password" required onChange ={handleChange} name="password" value={password}></FormInput>
 
                 <ButtonsContainer>
                     <Button type="submit">Sign In</Button>
-                    <Button type='button' onClick={signInWithGoogle} buttonType={BUTTON_TYPE_CLASSES.google}>Google sign in</Button>
                 </ButtonsContainer>
                 
             </form>

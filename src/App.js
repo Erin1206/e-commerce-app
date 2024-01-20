@@ -4,18 +4,28 @@ import { Routes, Route } from "react-router-dom";
 import Authentication from "./routes/authentication/authentication";
 import Shop from "./routes/shop/shop";
 import Checkout from "./routes/checkout/checkout";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { checkUserSession } from "./store/user/user.action";
+import { Amplify } from 'aws-amplify'
+import config from './amplifyconfiguration.json'
 
-
+Amplify.configure(config)
 const App = () => {
-  const dispatch = useDispatch()
+  // const {setLoggedIn} = useContext(UserContext)
+  // useEffect(()=>{
+  //   AssessLoggedIn()
+  // },[])
+  // const AssessLoggedIn = async() => {
+  //   try {
+  //     await getCurrentUser()
+  //       setLoggedIn(true)
+  //       console.log("log in true")
+  //   } catch (error) {
+  //     setLoggedIn(false)
+  //     console.log(error)
+  //   }
+    
+  // }
 
-  useEffect(() => {
-    dispatch(checkUserSession())
-
-  },[])
+  
   return (
     <Routes>
       <Route path='/' element={<Navigation/>}>

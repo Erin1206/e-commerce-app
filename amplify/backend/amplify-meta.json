@@ -1,0 +1,58 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ecommerceapp-dev-133541-authRole",
+      "UnauthRoleArn": "arn:aws:iam::992382401389:role/amplify-ecommerceapp-dev-133541-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::992382401389:role/amplify-ecommerceapp-dev-133541-authRole",
+      "Region": "us-west-1",
+      "DeploymentBucketName": "amplify-ecommerceapp-dev-133541-deployment",
+      "UnauthRoleName": "amplify-ecommerceapp-dev-133541-unauthRole",
+      "StackName": "amplify-ecommerceapp-dev-133541",
+      "StackId": "arn:aws:cloudformation:us-west-1:992382401389:stack/amplify-ecommerceapp-dev-133541/607b03a0-b580-11ee-8920-02b239e1cce1",
+      "AmplifyAppId": "d1khx6oziryhqg"
+    }
+  },
+  "auth": {
+    "ecommerceapp71c8b207": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-ecommerceapp-dev-133541-deployment/amplify-cfn-templates/auth/ecommerceapp71c8b207-cloudformation-template.json",
+        "logicalId": "authecommerceapp71c8b207"
+      },
+      "lastPushTimeStamp": "2024-01-17T21:40:42.933Z",
+      "output": {
+        "UserPoolId": "us-west-1_kc1jKVbHc",
+        "AppClientIDWeb": "7318g8g85ov0le4ai1fvh8elaj",
+        "AppClientID": "1b8r98mafu8l3ultpgkp86ao4m",
+        "IdentityPoolId": "us-west-1:f9f2a194-c41a-4b8b-8f1f-d3b729a3f70d",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-1:992382401389:userpool/us-west-1_kc1jKVbHc",
+        "IdentityPoolName": "ecommerceapp71c8b207_identitypool_71c8b207__dev",
+        "UserPoolName": "ecommerceapp71c8b207_userpool_71c8b207"
+      },
+      "lastPushDirHash": "61P/pLF3Ol/Qpm4jYTwn5KFzu44="
+    }
+  }
+}
